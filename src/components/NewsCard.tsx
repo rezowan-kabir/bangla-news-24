@@ -1,0 +1,42 @@
+import Image from "next/image";
+import React from "react";
+
+const NewsCard = ({ news }) => {
+  console.log(news);
+
+  return (
+    <div>
+      <div className="card bg-base-100 border border-base-300 shadow-sm overflow-hidden rounded-xl h-full">
+        <figure className=" bg-base-200 overflow-hidden">
+          <Image
+            src={news.imageUrl}
+            alt={news.imageAlt}
+            width={600}
+            height={500}
+            className="w-full h-full object-cover"
+          />
+        </figure>
+
+        <div className="p-5 flex flex-col gap-2">
+          <p className="text-red-600 text-sm font-medium">{news.category}</p>
+
+          <h2 className="text-xl font-bold leading-snug line-clamp-3">
+            {news.title}
+          </h2>
+
+          <p className="text-base-content/70 text-base leading-relaxed line-clamp-2">
+            {news.description}
+          </p>
+
+          <p className="text-sm text-base-content/50 mt-1">
+            {new Date(news.firstPublished).toLocaleDateString("bn-BD", {
+              dateStyle: "long",
+            })}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NewsCard;
