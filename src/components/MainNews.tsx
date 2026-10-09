@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface News {
@@ -16,7 +17,10 @@ const MainNews = ({ news }: { news: News []}) => {
   return (
     <div className="grid grid-cols-2 gap-6">
       {/* Featured News */}
-      <div className="card bg-base-100 border border-base-300 shadow-sm overflow-hidden">
+      <Link
+        href={`/news/${firstNews.id}`}
+        className="card bg-base-100 border border-base-300 shadow-sm overflow-hidden"
+      >
         <figure className="h-64 md:h-80 bg-base-200">
           <Image
             src={firstNews.imageUrl}
@@ -27,13 +31,13 @@ const MainNews = ({ news }: { news: News []}) => {
           />
         </figure>
 
-        <div className=" ">
-          <p className="text-red-600 text-sm font-medium">
-            {firstNews.category}
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold">{firstNews.title}</h2>
+        <div className="p-4">
+          <p className="text-red-600 text-sm font-medium">{firstNews.category}</p>
+          <h2 className="text-2xl md:text-3xl font-bold">
+            {firstNews.title}
+          </h2>
 
-          <p className="text-base-content/70 ">{firstNews.description}</p>
+          <p className="text-base-content/70">{firstNews.description}</p>
 
           <p className="text-sm text-base-content/50">
             {new Date(firstNews.firstPublished).toLocaleDateString("bn-BD", {
@@ -41,18 +45,22 @@ const MainNews = ({ news }: { news: News []}) => {
             })}
           </p>
         </div>
-      </div>
+      </Link>
 
       {/* Other News */}
       <div className="card bg-base-100 border border-base-300 shadow-sm">
         <div className="divide-y divide-base-300">
           {otherNews.slice(0, 4).map((item) => (
-            <div key={item.id} className="p-3">
+            <Link
+              key={item.id}
+              href={`/news/${item.id}`}
+              className="block p-3"
+            >
               <p className="text-red-600 text-sm font-medium mb-2">
                 {item.category}
               </p>
-              <h3 className="  font-bold ">{item.title}</h3>
-            </div>
+              <h3 className="font-bold">{item.title}</h3>
+            </Link>
           ))}
         </div>
       </div>

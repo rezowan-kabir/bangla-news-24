@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface MostRead {
   id: string;
   title: string;
@@ -14,17 +16,19 @@ const news: MostRead[] = data.data;
 
         <div className="space-y-5">
           {news.map((n, index) => (
-            <div key={n.id} className="flex items-start gap-2">
+            <Link
+              key={n.id}
+              href={`/news/${n.id}`}
+              className="flex items-start gap-2"
+            >
               <span className="text-xl font-bold text-red-700  ">
                 {index + 1}
               </span>
 
-              <div>
-                <p className="  font-bold">
-                  {n.title}
-                </p>
+              <div className="font-bold">
+                <p>{n.title}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
