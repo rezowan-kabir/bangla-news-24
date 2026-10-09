@@ -1,6 +1,9 @@
+import Marquee from "@/components/Marquee"
+
 export default function Home() {
   return (
     <div>
+      <Marquee/>
       <p>
         সম্প্রতি প্রাপ্তবয়স্ক তিনজন নারী বাংলাদেশ থেকে নেপালে যাওয়ার জন্য ঢাকার
         শাহজালাল আন্তর্জাতিক বিমানবন্দরে গেলে ইমিগ্রেশন অফিসারদের নানা ধরনের

@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 
 import Image from "next/image";
@@ -5,9 +6,11 @@ import Link from "next/link";
 import NavLink from './NavLink';
 
 const Header = () => {
-  const date = new Date().toLocaleDateString("bn-BD", {
-    dateStyle: "full",
-  });
+  const [date] = React.useState(() =>
+    new Date().toLocaleDateString("bn-BD", {
+      dateStyle: "full",
+    }),
+  );
 
   return (
     <header className=" container mx-auto w-full bg-white border-b border-gray-200">
