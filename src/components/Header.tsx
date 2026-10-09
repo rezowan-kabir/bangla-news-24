@@ -1,19 +1,14 @@
-"use client"
-import React from 'react';
-
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 import NavLink from './NavLink';
 
 const Header = () => {
-  const [date] = React.useState(() =>
-    new Date().toLocaleDateString("bn-BD", {
-      dateStyle: "full",
-    }),
-  );
+  const date = new Date().toLocaleDateString('bn-BD', {
+    dateStyle: 'full',
+  });
 
   return (
-    <header className=" container mx-auto w-full bg-white border-b border-gray-200">
+    <header className="container mx-auto w-full bg-white border-b border-gray-200">
       <div className="h-2 bg-[#1b2a2f]"></div>
 
       <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col items-center">
@@ -56,79 +51,11 @@ const Header = () => {
             </Link>
           </div>
         </div>
-
-        {/* <nav className="w-full flex justify-center">
-          <ul className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm font-serif text-gray-800">
-            <li>
-              <Link href="/" className="hover:text-red-700 transition-colors">
-                হোম
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/politics"
-                className="hover:text-red-700 transition-colors"
-              >
-                রাজনীতি
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/world"
-                className="hover:text-red-700 transition-colors"
-              >
-                বিশ্ব
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/economy"
-                className="hover:text-red-700 transition-colors"
-              >
-                অর্থনীতি
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/health"
-                className="hover:text-red-700 transition-colors"
-              >
-                স্বাস্থ্য
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/sports"
-                className="hover:text-red-700 transition-colors"
-              >
-                খেলা
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/tech"
-                className="hover:text-red-700 transition-colors"
-              >
-                প্রযুক্তি
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/watch"
-                className="hover:text-red-700 transition-colors"
-              >
-                দেখুন
-              </Link>
-            </li>
-          </ul>
-        </nav> */}
       </div>
 
-      <NavLink/>
-
+      <NavLink />
     </header>
   );
 };
-
 
 export default Header;

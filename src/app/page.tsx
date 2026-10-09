@@ -1,16 +1,25 @@
+import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee"
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch("https://news-api-v2.vercel.app/api/news/sections")
+  const data = await res.json()
+  const sections = data.data
+  const mainNews = sections[0].articles;
   return (
     <div>
       <Marquee/>
-      <p>
-        সম্প্রতি প্রাপ্তবয়স্ক তিনজন নারী বাংলাদেশ থেকে নেপালে যাওয়ার জন্য ঢাকার
-        শাহজালাল আন্তর্জাতিক বিমানবন্দরে গেলে ইমিগ্রেশন অফিসারদের নানা ধরনের
-        প্রশ্নের মুখোমুখি হন, হয়রানির শিকার হন বলে অভিযোগ উঠেছে। কিন্তু শুধু
-        বিমানবন্দরেই নয়, দেশের ভেতরেও একা কিংবা নারীরা কয়েকজনে মিলে ঘুরতে গিয়ে
-        বিভিন্ন সময় নানা ধরনের তিক্ত অভিজ্ঞতার মুখোমুখি হন।
-      </p>
+      <div className="container mx-auto grid grid-cols-3 ">
+        {/* news section */}
+        <div className="col-span-2 ">
+          <MainNews news ={mainNews}/>
+        </div>
+
+        {/* most read section */}
+        <div className="col-span-1 ">
+
+        </div>
+      </div>
     </div>
   );
 }
