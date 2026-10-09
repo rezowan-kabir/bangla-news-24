@@ -1,8 +1,16 @@
 import Image from "next/image";
 import React from "react";
 
-const NewsCard = ({ news }) => {
-  console.log(news);
+interface News {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  imageUrl: string;
+  imageAlt: string;
+  firstPublished: string;
+}
+const NewsCard = ({ news }:{news:News}) => {
 
   return (
     <div>

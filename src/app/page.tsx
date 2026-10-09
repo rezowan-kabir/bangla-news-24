@@ -1,18 +1,33 @@
 import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee"
+import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
+
+interface IOtherSection {
+  curationId: string;
+  title: string;
+  articles: {
+    id: string;
+    title: string;
+    description: string;
+    category: string;
+    imageUrl: string;
+    imageAlt: string;
+    firstPublished: string;
+  }[];
+}
 
 export default async function Home() {
   const res = await fetch("https://news-api-v2.vercel.app/api/news/sections")
   const data = await res.json()
   const sections = data.data
   const mainNews = sections[0].articles;
-  const otherSections = sections.slice(1)
+  const otherSections: IOtherSection[] = sections.slice(1);
   // console.log(otherSections)
   return (
     <div>
       <Marquee />
-      <div className="container mx-auto grid grid-cols-3 ">
+      <div className="container mx-auto grid grid-cols-3 gap-5 ">
         {/* news section */}
         <div className="col-span-2 ">
           <MainNews news={mainNews} />
@@ -35,7 +50,10 @@ export default async function Home() {
         </div>
 
         {/* most read section */}
-        <div className="col-span-1 "></div>
+        <div className="col-span-1 ">
+            <MostRead></MostRead>
+
+        </div>
       </div>
     </div>
   );
