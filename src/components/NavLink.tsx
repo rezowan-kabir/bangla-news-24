@@ -39,7 +39,7 @@ const NavLink = async () => {
         <Link
           className="hover:text-red-700 transition-colors"
           key={`${n.slug}-${i}`}
-          href={n.slug}
+          href={`/category/${n.slug}`}
         >
           {n.title}
         </Link>
