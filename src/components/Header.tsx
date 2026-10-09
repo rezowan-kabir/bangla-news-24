@@ -2,6 +2,7 @@ import React from 'react';
 
 import Image from "next/image";
 import Link from "next/link";
+import NavLink from './NavLink';
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -9,7 +10,7 @@ const Header = () => {
   });
 
   return (
-    <header className="w-full bg-white border-b border-gray-200">
+    <header className=" container mx-auto w-full bg-white border-b border-gray-200">
       <div className="h-2 bg-[#1b2a2f]"></div>
 
       <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col items-center">
@@ -53,7 +54,7 @@ const Header = () => {
           </div>
         </div>
 
-        <nav className="w-full flex justify-center">
+        {/* <nav className="w-full flex justify-center">
           <ul className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm font-serif text-gray-800">
             <li>
               <Link href="/" className="hover:text-red-700 transition-colors">
@@ -117,8 +118,10 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
       </div>
+
+      <NavLink/>
 
     </header>
   );
